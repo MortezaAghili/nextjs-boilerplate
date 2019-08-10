@@ -146,7 +146,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux */ "redux");
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../store */ "./store.js");
+/* harmony import */ var _store_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../store/actions */ "./store/actions.js");
 
 var _jsxFileName = "/Users/morteza/Codes/bimnet/with-redux-persist-app/components/counter.js";
 
@@ -238,9 +238,9 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = dispatch => Object(redux__WEBPACK_IMPORTED_MODULE_3__["bindActionCreators"])({
-  incrementCount: _store__WEBPACK_IMPORTED_MODULE_4__["incrementCount"],
-  decrementCount: _store__WEBPACK_IMPORTED_MODULE_4__["decrementCount"],
-  resetCount: _store__WEBPACK_IMPORTED_MODULE_4__["resetCount"]
+  incrementCount: _store_actions__WEBPACK_IMPORTED_MODULE_4__["incrementCount"],
+  decrementCount: _store_actions__WEBPACK_IMPORTED_MODULE_4__["decrementCount"],
+  resetCount: _store_actions__WEBPACK_IMPORTED_MODULE_4__["resetCount"]
 }, dispatch);
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(Counter));
@@ -265,7 +265,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! redux */ "redux");
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../store */ "./store.js");
+/* harmony import */ var _store_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../store/actions */ "./store/actions.js");
 
 
 var _jsxFileName = "/Users/morteza/Codes/bimnet/with-redux-persist-app/components/data-list.js";
@@ -384,8 +384,8 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = dispatch => Object(redux__WEBPACK_IMPORTED_MODULE_4__["bindActionCreators"])({
-  loadExampleData: _store__WEBPACK_IMPORTED_MODULE_5__["loadExampleData"],
-  loadingExampleDataFailure: _store__WEBPACK_IMPORTED_MODULE_5__["loadingExampleDataFailure"]
+  loadExampleData: _store_actions__WEBPACK_IMPORTED_MODULE_5__["loadExampleData"],
+  loadingExampleDataFailure: _store_actions__WEBPACK_IMPORTED_MODULE_5__["loadingExampleDataFailure"]
 }, dispatch);
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["connect"])(mapStateToProps, mapDispatchToProps)(DataList));
@@ -485,17 +485,6 @@ module.exports = __webpack_require__(/*! core-js/library/fn/json/stringify */ "c
 
 /***/ }),
 
-/***/ "./node_modules/@babel/runtime-corejs2/core-js/object/assign.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/@babel/runtime-corejs2/core-js/object/assign.js ***!
-  \**********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(/*! core-js/library/fn/object/assign */ "core-js/library/fn/object/assign");
-
-/***/ }),
-
 /***/ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js":
 /*!*******************************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js ***!
@@ -550,7 +539,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "react-redux");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store */ "./store.js");
+/* harmony import */ var _store_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store/actions */ "./store/actions.js");
 /* harmony import */ var _components_examples__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/examples */ "./components/examples.js");
 var _jsxFileName = "/Users/morteza/Codes/bimnet/with-redux-persist-app/pages/index.js";
 
@@ -565,7 +554,7 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
   }) {
     const isServer = !!req; // DISPATCH ACTIONS HERE ONLY WITH `reduxStore.dispatch`
 
-    reduxStore.dispatch(Object(_store__WEBPACK_IMPORTED_MODULE_2__["serverRenderClock"])(isServer));
+    reduxStore.dispatch(Object(_store_actions__WEBPACK_IMPORTED_MODULE_2__["serverRenderClock"])(isServer));
     return {};
   }
 
@@ -592,23 +581,42 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
 }
 
 const mapDispatchToProps = {
-  startClock: _store__WEBPACK_IMPORTED_MODULE_2__["startClock"]
+  startClock: _store_actions__WEBPACK_IMPORTED_MODULE_2__["startClock"]
 };
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(null, mapDispatchToProps)(Index));
 
 /***/ }),
 
-/***/ "./store.js":
-/*!******************!*\
-  !*** ./store.js ***!
-  \******************/
-/*! exports provided: actionTypes, reducer, serverRenderClock, startClock, incrementCount, decrementCount, resetCount, loadExampleData, loadingExampleDataFailure, initializeStore */
+/***/ "./store/actionTypes.js":
+/*!******************************!*\
+  !*** ./store/actionTypes.js ***!
+  \******************************/
+/*! exports provided: actionTypes */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "actionTypes", function() { return actionTypes; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "reducer", function() { return reducer; });
+const actionTypes = {
+  TICK: 'TICK',
+  INCREMENT: 'INCREMENT',
+  DECREMENT: 'DECREMENT',
+  RESET: 'RESET',
+  LOAD_EXAMPLE_DATA: 'LOAD_EXAMPLE_DATA',
+  LOADING_DATA_FAILURE: 'LOADING_DATA_FAILURE'
+};
+
+/***/ }),
+
+/***/ "./store/actions.js":
+/*!**************************!*\
+  !*** ./store/actions.js ***!
+  \**************************/
+/*! exports provided: serverRenderClock, startClock, incrementCount, decrementCount, resetCount, loadExampleData, loadingExampleDataFailure */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "serverRenderClock", function() { return serverRenderClock; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "startClock", function() { return startClock; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "incrementCount", function() { return incrementCount; });
@@ -616,129 +624,51 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resetCount", function() { return resetCount; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadExampleData", function() { return loadExampleData; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadingExampleDataFailure", function() { return loadingExampleDataFailure; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initializeStore", function() { return initializeStore; });
 /* harmony import */ var _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/date/now */ "./node_modules/@babel/runtime-corejs2/core-js/date/now.js");
 /* harmony import */ var _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_assign__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/assign */ "./node_modules/@babel/runtime-corejs2/core-js/object/assign.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_assign__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_assign__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! redux */ "redux");
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var redux_devtools_extension__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux-devtools-extension */ "redux-devtools-extension");
-/* harmony import */ var redux_devtools_extension__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(redux_devtools_extension__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var redux_persist__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! redux-persist */ "redux-persist");
-/* harmony import */ var redux_persist__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(redux_persist__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var redux_persist_lib_storage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! redux-persist/lib/storage */ "redux-persist/lib/storage");
-/* harmony import */ var redux_persist_lib_storage__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(redux_persist_lib_storage__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _actionTypes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./actionTypes */ "./store/actionTypes.js");
 
-
-
-
-
-
-const exampleInitialState = {
-  lastUpdate: 0,
-  light: false,
-  count: 0,
-  exampleData: [],
-  error: null
-};
-const actionTypes = {
-  TICK: 'TICK',
-  INCREMENT: 'INCREMENT',
-  DECREMENT: 'DECREMENT',
-  RESET: 'RESET',
-  LOAD_EXAMPLE_DATA: 'LOAD_EXAMPLE_DATA',
-  LOADING_DATA_FAILURE: 'LOADING_DATA_FAILURE' // REDUCERS
-
-};
-const reducer = (state = exampleInitialState, action) => {
-  switch (action.type) {
-    case actionTypes.TICK:
-      return _babel_runtime_corejs2_core_js_object_assign__WEBPACK_IMPORTED_MODULE_1___default()({}, state, {
-        lastUpdate: action.ts,
-        light: !!action.light
-      });
-
-    case actionTypes.INCREMENT:
-      return _babel_runtime_corejs2_core_js_object_assign__WEBPACK_IMPORTED_MODULE_1___default()({}, state, {
-        count: state.count + 1
-      });
-
-    case actionTypes.DECREMENT:
-      return _babel_runtime_corejs2_core_js_object_assign__WEBPACK_IMPORTED_MODULE_1___default()({}, state, {
-        count: state.count - 1
-      });
-
-    case actionTypes.RESET:
-      return _babel_runtime_corejs2_core_js_object_assign__WEBPACK_IMPORTED_MODULE_1___default()({}, state, {
-        count: exampleInitialState.count
-      });
-
-    case actionTypes.LOAD_EXAMPLE_DATA:
-      return _babel_runtime_corejs2_core_js_object_assign__WEBPACK_IMPORTED_MODULE_1___default()({}, state, {
-        exampleData: action.data
-      });
-
-    case actionTypes.LOADING_DATA_FAILURE:
-      return _babel_runtime_corejs2_core_js_object_assign__WEBPACK_IMPORTED_MODULE_1___default()({}, state, {
-        error: true
-      });
-
-    default:
-      return state;
-  }
-}; // ACTIONS
 
 const serverRenderClock = () => {
   return {
-    type: actionTypes.TICK,
+    type: _actionTypes__WEBPACK_IMPORTED_MODULE_1__["actionTypes"].TICK,
     light: false,
     ts: _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_0___default()()
   };
 };
 const startClock = () => {
   return {
-    type: actionTypes.TICK,
+    type: _actionTypes__WEBPACK_IMPORTED_MODULE_1__["actionTypes"].TICK,
     light: true,
     ts: _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_0___default()()
   };
 };
 const incrementCount = () => {
   return {
-    type: actionTypes.INCREMENT
+    type: _actionTypes__WEBPACK_IMPORTED_MODULE_1__["actionTypes"].INCREMENT
   };
 };
 const decrementCount = () => {
   return {
-    type: actionTypes.DECREMENT
+    type: _actionTypes__WEBPACK_IMPORTED_MODULE_1__["actionTypes"].DECREMENT
   };
 };
 const resetCount = () => {
   return {
-    type: actionTypes.RESET
+    type: _actionTypes__WEBPACK_IMPORTED_MODULE_1__["actionTypes"].RESET
   };
 };
 const loadExampleData = data => {
   return {
-    type: actionTypes.LOAD_EXAMPLE_DATA,
+    type: _actionTypes__WEBPACK_IMPORTED_MODULE_1__["actionTypes"].LOAD_EXAMPLE_DATA,
     data
   };
 };
 const loadingExampleDataFailure = () => {
   return {
-    type: actionTypes.LOADING_DATA_FAILURE
+    type: _actionTypes__WEBPACK_IMPORTED_MODULE_1__["actionTypes"].LOADING_DATA_FAILURE
   };
 };
-const persistConfig = {
-  key: 'primary',
-  storage: (redux_persist_lib_storage__WEBPACK_IMPORTED_MODULE_5___default()),
-  whitelist: ['exampleData'] // place to select which state you want to persist
-
-};
-const persistedReducer = Object(redux_persist__WEBPACK_IMPORTED_MODULE_4__["persistReducer"])(persistConfig, reducer);
-function initializeStore(initialState = exampleInitialState) {
-  return Object(redux__WEBPACK_IMPORTED_MODULE_2__["createStore"])(persistedReducer, initialState, Object(redux_devtools_extension__WEBPACK_IMPORTED_MODULE_3__["composeWithDevTools"])(Object(redux__WEBPACK_IMPORTED_MODULE_2__["applyMiddleware"])()));
-}
 
 /***/ }),
 
@@ -773,17 +703,6 @@ module.exports = require("core-js/library/fn/date/now");
 /***/ (function(module, exports) {
 
 module.exports = require("core-js/library/fn/json/stringify");
-
-/***/ }),
-
-/***/ "core-js/library/fn/object/assign":
-/*!***************************************************!*\
-  !*** external "core-js/library/fn/object/assign" ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("core-js/library/fn/object/assign");
 
 /***/ }),
 
@@ -828,39 +747,6 @@ module.exports = require("react-redux");
 /***/ (function(module, exports) {
 
 module.exports = require("redux");
-
-/***/ }),
-
-/***/ "redux-devtools-extension":
-/*!*******************************************!*\
-  !*** external "redux-devtools-extension" ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("redux-devtools-extension");
-
-/***/ }),
-
-/***/ "redux-persist":
-/*!********************************!*\
-  !*** external "redux-persist" ***!
-  \********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("redux-persist");
-
-/***/ }),
-
-/***/ "redux-persist/lib/storage":
-/*!********************************************!*\
-  !*** external "redux-persist/lib/storage" ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("redux-persist/lib/storage");
 
 /***/ }),
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { loadExampleData, loadingExampleDataFailure } from '../store'
+import { loadExampleData, loadingExampleDataFailure } from '../store/actions'
 
 class DataList extends Component {
   state = {

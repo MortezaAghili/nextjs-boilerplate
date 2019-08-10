@@ -58,7 +58,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/index.js");
-/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../store */ "./store.js");
+/* harmony import */ var _store_actions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../store/actions */ "./store/actions.js");
 
 
 
@@ -167,9 +167,9 @@ function mapStateToProps(state) {
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return Object(redux__WEBPACK_IMPORTED_MODULE_9__["bindActionCreators"])({
-    incrementCount: _store__WEBPACK_IMPORTED_MODULE_10__["incrementCount"],
-    decrementCount: _store__WEBPACK_IMPORTED_MODULE_10__["decrementCount"],
-    resetCount: _store__WEBPACK_IMPORTED_MODULE_10__["resetCount"]
+    incrementCount: _store_actions__WEBPACK_IMPORTED_MODULE_10__["incrementCount"],
+    decrementCount: _store_actions__WEBPACK_IMPORTED_MODULE_10__["decrementCount"],
+    resetCount: _store_actions__WEBPACK_IMPORTED_MODULE_10__["resetCount"]
   }, dispatch);
 };
 
@@ -199,7 +199,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/index.js");
-/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../store */ "./store.js");
+/* harmony import */ var _store_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../store/actions */ "./store/actions.js");
 
 
 
@@ -340,8 +340,8 @@ function mapStateToProps(state) {
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return Object(redux__WEBPACK_IMPORTED_MODULE_10__["bindActionCreators"])({
-    loadExampleData: _store__WEBPACK_IMPORTED_MODULE_11__["loadExampleData"],
-    loadingExampleDataFailure: _store__WEBPACK_IMPORTED_MODULE_11__["loadingExampleDataFailure"]
+    loadExampleData: _store_actions__WEBPACK_IMPORTED_MODULE_11__["loadExampleData"],
+    loadingExampleDataFailure: _store_actions__WEBPACK_IMPORTED_MODULE_11__["loadingExampleDataFailure"]
   }, dispatch);
 };
 
@@ -435,17 +435,6 @@ module.exports = __webpack_require__(/*! core-js/library/fn/date/now */ "./node_
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(/*! core-js/library/fn/json/stringify */ "./node_modules/core-js/library/fn/json/stringify.js");
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime-corejs2/core-js/object/assign.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/@babel/runtime-corejs2/core-js/object/assign.js ***!
-  \**********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(/*! core-js/library/fn/object/assign */ "./node_modules/core-js/library/fn/object/assign.js");
 
 /***/ }),
 
@@ -781,19 +770,6 @@ var $JSON = core.JSON || (core.JSON = { stringify: JSON.stringify });
 module.exports = function stringify(it) { // eslint-disable-line no-unused-vars
   return $JSON.stringify.apply($JSON, arguments);
 };
-
-
-/***/ }),
-
-/***/ "./node_modules/core-js/library/fn/object/assign.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/core-js/library/fn/object/assign.js ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(/*! ../../modules/es6.object.assign */ "./node_modules/core-js/library/modules/es6.object.assign.js");
-module.exports = __webpack_require__(/*! ../../modules/_core */ "./node_modules/core-js/library/modules/_core.js").Object.assign;
 
 
 /***/ }),
@@ -1537,56 +1513,6 @@ var meta = module.exports = {
 
 /***/ }),
 
-/***/ "./node_modules/core-js/library/modules/_object-assign.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/core-js/library/modules/_object-assign.js ***!
-  \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-// 19.1.2.1 Object.assign(target, source, ...)
-var DESCRIPTORS = __webpack_require__(/*! ./_descriptors */ "./node_modules/core-js/library/modules/_descriptors.js");
-var getKeys = __webpack_require__(/*! ./_object-keys */ "./node_modules/core-js/library/modules/_object-keys.js");
-var gOPS = __webpack_require__(/*! ./_object-gops */ "./node_modules/core-js/library/modules/_object-gops.js");
-var pIE = __webpack_require__(/*! ./_object-pie */ "./node_modules/core-js/library/modules/_object-pie.js");
-var toObject = __webpack_require__(/*! ./_to-object */ "./node_modules/core-js/library/modules/_to-object.js");
-var IObject = __webpack_require__(/*! ./_iobject */ "./node_modules/core-js/library/modules/_iobject.js");
-var $assign = Object.assign;
-
-// should work with symbols and should have deterministic property order (V8 bug)
-module.exports = !$assign || __webpack_require__(/*! ./_fails */ "./node_modules/core-js/library/modules/_fails.js")(function () {
-  var A = {};
-  var B = {};
-  // eslint-disable-next-line no-undef
-  var S = Symbol();
-  var K = 'abcdefghijklmnopqrst';
-  A[S] = 7;
-  K.split('').forEach(function (k) { B[k] = k; });
-  return $assign({}, A)[S] != 7 || Object.keys($assign({}, B)).join('') != K;
-}) ? function assign(target, source) { // eslint-disable-line no-unused-vars
-  var T = toObject(target);
-  var aLen = arguments.length;
-  var index = 1;
-  var getSymbols = gOPS.f;
-  var isEnum = pIE.f;
-  while (aLen > index) {
-    var S = IObject(arguments[index++]);
-    var keys = getSymbols ? getKeys(S).concat(getSymbols(S)) : getKeys(S);
-    var length = keys.length;
-    var j = 0;
-    var key;
-    while (length > j) {
-      key = keys[j++];
-      if (!DESCRIPTORS || isEnum.call(S, key)) T[key] = S[key];
-    }
-  } return T;
-} : $assign;
-
-
-/***/ }),
-
 /***/ "./node_modules/core-js/library/modules/_object-create.js":
 /*!****************************************************************!*\
   !*** ./node_modules/core-js/library/modules/_object-create.js ***!
@@ -2267,21 +2193,6 @@ addToUnscopables('entries');
 var $export = __webpack_require__(/*! ./_export */ "./node_modules/core-js/library/modules/_export.js");
 
 $export($export.S, 'Date', { now: function () { return new Date().getTime(); } });
-
-
-/***/ }),
-
-/***/ "./node_modules/core-js/library/modules/es6.object.assign.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/core-js/library/modules/es6.object.assign.js ***!
-  \*******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// 19.1.3.1 Object.assign(target, source)
-var $export = __webpack_require__(/*! ./_export */ "./node_modules/core-js/library/modules/_export.js");
-
-$export($export.S + $export.F, 'Object', { assign: __webpack_require__(/*! ./_object-assign */ "./node_modules/core-js/library/modules/_object-assign.js") });
 
 
 /***/ }),
@@ -5634,948 +5545,6 @@ module.exports = (__webpack_require__(/*! dll-reference dll_01f9a3fa864a7b7414d8
 
 /***/ }),
 
-/***/ "./node_modules/redux-devtools-extension/index.js":
-/*!********************************************************!*\
-  !*** ./node_modules/redux-devtools-extension/index.js ***!
-  \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var compose = __webpack_require__(/*! redux */ "./node_modules/redux/es/index.js").compose;
-
-exports.__esModule = true;
-exports.composeWithDevTools = (
-   true && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ :
-    function() {
-      if (arguments.length === 0) return undefined;
-      if (typeof arguments[0] === 'object') return compose;
-      return compose.apply(null, arguments);
-    }
-);
-
-exports.devToolsEnhancer = (
-   true && window.__REDUX_DEVTOOLS_EXTENSION__ ?
-    window.__REDUX_DEVTOOLS_EXTENSION__ :
-    function() { return function(noop) { return noop; } }
-);
-
-
-/***/ }),
-
-/***/ "./node_modules/redux-persist/es/constants.js":
-/*!****************************************************!*\
-  !*** ./node_modules/redux-persist/es/constants.js ***!
-  \****************************************************/
-/*! exports provided: KEY_PREFIX, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER, DEFAULT_VERSION */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KEY_PREFIX", function() { return KEY_PREFIX; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FLUSH", function() { return FLUSH; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REHYDRATE", function() { return REHYDRATE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PAUSE", function() { return PAUSE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PERSIST", function() { return PERSIST; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PURGE", function() { return PURGE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REGISTER", function() { return REGISTER; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DEFAULT_VERSION", function() { return DEFAULT_VERSION; });
-var KEY_PREFIX = 'persist:';
-var FLUSH = 'persist/FLUSH';
-var REHYDRATE = 'persist/REHYDRATE';
-var PAUSE = 'persist/PAUSE';
-var PERSIST = 'persist/PERSIST';
-var PURGE = 'persist/PURGE';
-var REGISTER = 'persist/REGISTER';
-var DEFAULT_VERSION = -1;
-
-/***/ }),
-
-/***/ "./node_modules/redux-persist/es/createMigrate.js":
-/*!********************************************************!*\
-  !*** ./node_modules/redux-persist/es/createMigrate.js ***!
-  \********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return createMigrate; });
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./constants */ "./node_modules/redux-persist/es/constants.js");
-
-
-function createMigrate(migrations, config) {
-  var _ref = config || {},
-      debug = _ref.debug;
-
-  return function (state, currentVersion) {
-    if (!state) {
-      if ( true && debug) console.log('redux-persist: no inbound state, skipping migration');
-      return Promise.resolve(undefined);
-    }
-
-    var inboundVersion = state._persist && state._persist.version !== undefined ? state._persist.version : _constants__WEBPACK_IMPORTED_MODULE_0__["DEFAULT_VERSION"];
-    if (inboundVersion === currentVersion) {
-      if ( true && debug) console.log('redux-persist: versions match, noop migration');
-      return Promise.resolve(state);
-    }
-    if (inboundVersion > currentVersion) {
-      if (true) console.error('redux-persist: downgrading version is not supported');
-      return Promise.resolve(state);
-    }
-
-    var migrationKeys = Object.keys(migrations).map(function (ver) {
-      return parseInt(ver);
-    }).filter(function (key) {
-      return currentVersion >= key && key > inboundVersion;
-    }).sort(function (a, b) {
-      return a - b;
-    });
-
-    if ( true && debug) console.log('redux-persist: migrationKeys', migrationKeys);
-    try {
-      var migratedState = migrationKeys.reduce(function (state, versionKey) {
-        if ( true && debug) console.log('redux-persist: running migration for versionKey', versionKey);
-        return migrations[versionKey](state);
-      }, state);
-      return Promise.resolve(migratedState);
-    } catch (err) {
-      return Promise.reject(err);
-    }
-  };
-}
-
-/***/ }),
-
-/***/ "./node_modules/redux-persist/es/createPersistoid.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/redux-persist/es/createPersistoid.js ***!
-  \***********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return createPersistoid; });
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./constants */ "./node_modules/redux-persist/es/constants.js");
-
-
-// @TODO remove once flow < 0.63 support is no longer required.
-
-function createPersistoid(config) {
-  // defaults
-  var blacklist = config.blacklist || null;
-  var whitelist = config.whitelist || null;
-  var transforms = config.transforms || [];
-  var throttle = config.throttle || 0;
-  var storageKey = '' + (config.keyPrefix !== undefined ? config.keyPrefix : _constants__WEBPACK_IMPORTED_MODULE_0__["KEY_PREFIX"]) + config.key;
-  var storage = config.storage;
-  var serialize = config.serialize === false ? function (x) {
-    return x;
-  } : defaultSerialize;
-
-  // initialize stateful values
-  var lastState = {};
-  var stagedState = {};
-  var keysToProcess = [];
-  var timeIterator = null;
-  var writePromise = null;
-
-  var update = function update(state) {
-    // add any changed keys to the queue
-    Object.keys(state).forEach(function (key) {
-      if (!passWhitelistBlacklist(key)) return; // is keyspace ignored? noop
-      if (lastState[key] === state[key]) return; // value unchanged? noop
-      if (keysToProcess.indexOf(key) !== -1) return; // is key already queued? noop
-      keysToProcess.push(key); // add key to queue
-    });
-
-    //if any key is missing in the new state which was present in the lastState,
-    //add it for processing too
-    Object.keys(lastState).forEach(function (key) {
-      if (state[key] === undefined) {
-        keysToProcess.push(key);
-      }
-    });
-
-    // start the time iterator if not running (read: throttle)
-    if (timeIterator === null) {
-      timeIterator = setInterval(processNextKey, throttle);
-    }
-
-    lastState = state;
-  };
-
-  function processNextKey() {
-    if (keysToProcess.length === 0) {
-      if (timeIterator) clearInterval(timeIterator);
-      timeIterator = null;
-      return;
-    }
-
-    var key = keysToProcess.shift();
-    var endState = transforms.reduce(function (subState, transformer) {
-      return transformer.in(subState, key, lastState);
-    }, lastState[key]);
-
-    if (endState !== undefined) {
-      try {
-        stagedState[key] = serialize(endState);
-      } catch (err) {
-        console.error('redux-persist/createPersistoid: error serializing state', err);
-      }
-    } else {
-      //if the endState is undefined, no need to persist the existing serialized content
-      delete stagedState[key];
-    }
-
-    if (keysToProcess.length === 0) {
-      writeStagedState();
-    }
-  }
-
-  function writeStagedState() {
-    // cleanup any removed keys just before write.
-    Object.keys(stagedState).forEach(function (key) {
-      if (lastState[key] === undefined) {
-        delete stagedState[key];
-      }
-    });
-
-    writePromise = storage.setItem(storageKey, serialize(stagedState)).catch(onWriteFail);
-  }
-
-  function passWhitelistBlacklist(key) {
-    if (whitelist && whitelist.indexOf(key) === -1 && key !== '_persist') return false;
-    if (blacklist && blacklist.indexOf(key) !== -1) return false;
-    return true;
-  }
-
-  function onWriteFail(err) {
-    // @TODO add fail handlers (typically storage full)
-    if (err && "development" !== 'production') {
-      console.error('Error storing data', err);
-    }
-  }
-
-  var flush = function flush() {
-    while (keysToProcess.length !== 0) {
-      processNextKey();
-    }
-    return writePromise || Promise.resolve();
-  };
-
-  // return `persistoid`
-  return {
-    update: update,
-    flush: flush
-  };
-}
-
-// @NOTE in the future this may be exposed via config
-function defaultSerialize(data) {
-  return JSON.stringify(data);
-}
-
-/***/ }),
-
-/***/ "./node_modules/redux-persist/es/createTransform.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/redux-persist/es/createTransform.js ***!
-  \**********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return createTransform; });
-
-
-function createTransform(
-// @NOTE inbound: transform state coming from redux on its way to being serialized and stored
-inbound,
-// @NOTE outbound: transform state coming from storage, on its way to be rehydrated into redux
-outbound) {
-  var config = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-
-  var whitelist = config.whitelist || null;
-  var blacklist = config.blacklist || null;
-
-  function whitelistBlacklistCheck(key) {
-    if (whitelist && whitelist.indexOf(key) === -1) return true;
-    if (blacklist && blacklist.indexOf(key) !== -1) return true;
-    return false;
-  }
-
-  return {
-    in: function _in(state, key, fullState) {
-      return !whitelistBlacklistCheck(key) && inbound ? inbound(state, key, fullState) : state;
-    },
-    out: function out(state, key, fullState) {
-      return !whitelistBlacklistCheck(key) && outbound ? outbound(state, key, fullState) : state;
-    }
-  };
-}
-
-/***/ }),
-
-/***/ "./node_modules/redux-persist/es/getStoredState.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/redux-persist/es/getStoredState.js ***!
-  \*********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return getStoredState; });
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./constants */ "./node_modules/redux-persist/es/constants.js");
-
-
-
-
-function getStoredState(config) {
-  var transforms = config.transforms || [];
-  var storageKey = '' + (config.keyPrefix !== undefined ? config.keyPrefix : _constants__WEBPACK_IMPORTED_MODULE_0__["KEY_PREFIX"]) + config.key;
-  var storage = config.storage;
-  var debug = config.debug;
-  var deserialize = config.serialize === false ? function (x) {
-    return x;
-  } : defaultDeserialize;
-  return storage.getItem(storageKey).then(function (serialized) {
-    if (!serialized) return undefined;else {
-      try {
-        var state = {};
-        var rawState = deserialize(serialized);
-        Object.keys(rawState).forEach(function (key) {
-          state[key] = transforms.reduceRight(function (subState, transformer) {
-            return transformer.out(subState, key, rawState);
-          }, deserialize(rawState[key]));
-        });
-        return state;
-      } catch (err) {
-        if ( true && debug) console.log('redux-persist/getStoredState: Error restoring data ' + serialized, err);
-        throw err;
-      }
-    }
-  });
-}
-
-function defaultDeserialize(serial) {
-  return JSON.parse(serial);
-}
-
-/***/ }),
-
-/***/ "./node_modules/redux-persist/es/index.js":
-/*!************************************************!*\
-  !*** ./node_modules/redux-persist/es/index.js ***!
-  \************************************************/
-/*! exports provided: persistReducer, persistCombineReducers, persistStore, createMigrate, createTransform, getStoredState, createPersistoid, purgeStoredState, KEY_PREFIX, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER, DEFAULT_VERSION */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _persistReducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./persistReducer */ "./node_modules/redux-persist/es/persistReducer.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "persistReducer", function() { return _persistReducer__WEBPACK_IMPORTED_MODULE_0__["default"]; });
-
-/* harmony import */ var _persistCombineReducers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./persistCombineReducers */ "./node_modules/redux-persist/es/persistCombineReducers.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "persistCombineReducers", function() { return _persistCombineReducers__WEBPACK_IMPORTED_MODULE_1__["default"]; });
-
-/* harmony import */ var _persistStore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./persistStore */ "./node_modules/redux-persist/es/persistStore.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "persistStore", function() { return _persistStore__WEBPACK_IMPORTED_MODULE_2__["default"]; });
-
-/* harmony import */ var _createMigrate__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./createMigrate */ "./node_modules/redux-persist/es/createMigrate.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createMigrate", function() { return _createMigrate__WEBPACK_IMPORTED_MODULE_3__["default"]; });
-
-/* harmony import */ var _createTransform__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./createTransform */ "./node_modules/redux-persist/es/createTransform.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createTransform", function() { return _createTransform__WEBPACK_IMPORTED_MODULE_4__["default"]; });
-
-/* harmony import */ var _getStoredState__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./getStoredState */ "./node_modules/redux-persist/es/getStoredState.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getStoredState", function() { return _getStoredState__WEBPACK_IMPORTED_MODULE_5__["default"]; });
-
-/* harmony import */ var _createPersistoid__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./createPersistoid */ "./node_modules/redux-persist/es/createPersistoid.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createPersistoid", function() { return _createPersistoid__WEBPACK_IMPORTED_MODULE_6__["default"]; });
-
-/* harmony import */ var _purgeStoredState__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./purgeStoredState */ "./node_modules/redux-persist/es/purgeStoredState.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "purgeStoredState", function() { return _purgeStoredState__WEBPACK_IMPORTED_MODULE_7__["default"]; });
-
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./constants */ "./node_modules/redux-persist/es/constants.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "KEY_PREFIX", function() { return _constants__WEBPACK_IMPORTED_MODULE_8__["KEY_PREFIX"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FLUSH", function() { return _constants__WEBPACK_IMPORTED_MODULE_8__["FLUSH"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "REHYDRATE", function() { return _constants__WEBPACK_IMPORTED_MODULE_8__["REHYDRATE"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PAUSE", function() { return _constants__WEBPACK_IMPORTED_MODULE_8__["PAUSE"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PERSIST", function() { return _constants__WEBPACK_IMPORTED_MODULE_8__["PERSIST"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PURGE", function() { return _constants__WEBPACK_IMPORTED_MODULE_8__["PURGE"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "REGISTER", function() { return _constants__WEBPACK_IMPORTED_MODULE_8__["REGISTER"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DEFAULT_VERSION", function() { return _constants__WEBPACK_IMPORTED_MODULE_8__["DEFAULT_VERSION"]; });
-
-
-
-
-
-
-
-
-
-
-
-
-/***/ }),
-
-/***/ "./node_modules/redux-persist/es/persistCombineReducers.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/redux-persist/es/persistCombineReducers.js ***!
-  \*****************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return persistCombineReducers; });
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/index.js");
-/* harmony import */ var _persistReducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./persistReducer */ "./node_modules/redux-persist/es/persistReducer.js");
-/* harmony import */ var _stateReconciler_autoMergeLevel2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./stateReconciler/autoMergeLevel2 */ "./node_modules/redux-persist/es/stateReconciler/autoMergeLevel2.js");
-
-
-
-
-// combineReducers + persistReducer with stateReconciler defaulted to autoMergeLevel2
-function persistCombineReducers(config, reducers) {
-  config.stateReconciler = config.stateReconciler === undefined ? _stateReconciler_autoMergeLevel2__WEBPACK_IMPORTED_MODULE_2__["default"] : config.stateReconciler;
-  return Object(_persistReducer__WEBPACK_IMPORTED_MODULE_1__["default"])(config, Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])(reducers));
-}
-
-/***/ }),
-
-/***/ "./node_modules/redux-persist/es/persistReducer.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/redux-persist/es/persistReducer.js ***!
-  \*********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return persistReducer; });
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./constants */ "./node_modules/redux-persist/es/constants.js");
-/* harmony import */ var _stateReconciler_autoMergeLevel1__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./stateReconciler/autoMergeLevel1 */ "./node_modules/redux-persist/es/stateReconciler/autoMergeLevel1.js");
-/* harmony import */ var _createPersistoid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./createPersistoid */ "./node_modules/redux-persist/es/createPersistoid.js");
-/* harmony import */ var _getStoredState__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./getStoredState */ "./node_modules/redux-persist/es/getStoredState.js");
-/* harmony import */ var _purgeStoredState__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./purgeStoredState */ "./node_modules/redux-persist/es/purgeStoredState.js");
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-
-
-
-
-
-
-
-var DEFAULT_TIMEOUT = 5000;
-/*
-  @TODO add validation / handling for:
-  - persisting a reducer which has nested _persist
-  - handling actions that fire before reydrate is called
-*/
-function persistReducer(config, baseReducer) {
-  if (true) {
-    if (!config) throw new Error('config is required for persistReducer');
-    if (!config.key) throw new Error('key is required in persistor config');
-    if (!config.storage) throw new Error("redux-persist: config.storage is required. Try using one of the provided storage engines `import storage from 'redux-persist/lib/storage'`");
-  }
-
-  var version = config.version !== undefined ? config.version : _constants__WEBPACK_IMPORTED_MODULE_0__["DEFAULT_VERSION"];
-  var debug = config.debug || false;
-  var stateReconciler = config.stateReconciler === undefined ? _stateReconciler_autoMergeLevel1__WEBPACK_IMPORTED_MODULE_1__["default"] : config.stateReconciler;
-  var getStoredState = config.getStoredState || _getStoredState__WEBPACK_IMPORTED_MODULE_3__["default"];
-  var timeout = config.timeout !== undefined ? config.timeout : DEFAULT_TIMEOUT;
-  var _persistoid = null;
-  var _purge = false;
-  var _paused = true;
-  var conditionalUpdate = function conditionalUpdate(state) {
-    // update the persistoid only if we are rehydrated and not paused
-    state._persist.rehydrated && _persistoid && !_paused && _persistoid.update(state);
-    return state;
-  };
-
-  return function (state, action) {
-    var _ref = state || {},
-        _persist = _ref._persist,
-        rest = _objectWithoutProperties(_ref, ['_persist']);
-
-    var restState = rest;
-
-    if (action.type === _constants__WEBPACK_IMPORTED_MODULE_0__["PERSIST"]) {
-      var _sealed = false;
-      var _rehydrate = function _rehydrate(payload, err) {
-        // dev warning if we are already sealed
-        if ( true && _sealed) console.error('redux-persist: rehydrate for "' + config.key + '" called after timeout.', payload, err);
-
-        // only rehydrate if we are not already sealed
-        if (!_sealed) {
-          action.rehydrate(config.key, payload, err);
-          _sealed = true;
-        }
-      };
-      timeout && setTimeout(function () {
-        !_sealed && _rehydrate(undefined, new Error('redux-persist: persist timed out for persist key "' + config.key + '"'));
-      }, timeout);
-
-      // @NOTE PERSIST resumes if paused.
-      _paused = false;
-
-      // @NOTE only ever create persistoid once, ensure we call it at least once, even if _persist has already been set
-      if (!_persistoid) _persistoid = Object(_createPersistoid__WEBPACK_IMPORTED_MODULE_2__["default"])(config);
-
-      // @NOTE PERSIST can be called multiple times, noop after the first
-      if (_persist) return state;
-      if (typeof action.rehydrate !== 'function' || typeof action.register !== 'function') throw new Error('redux-persist: either rehydrate or register is not a function on the PERSIST action. This can happen if the action is being replayed. This is an unexplored use case, please open an issue and we will figure out a resolution.');
-
-      action.register(config.key);
-
-      getStoredState(config).then(function (restoredState) {
-        var migrate = config.migrate || function (s, v) {
-          return Promise.resolve(s);
-        };
-        migrate(restoredState, version).then(function (migratedState) {
-          _rehydrate(migratedState);
-        }, function (migrateErr) {
-          if ( true && migrateErr) console.error('redux-persist: migration error', migrateErr);
-          _rehydrate(undefined, migrateErr);
-        });
-      }, function (err) {
-        _rehydrate(undefined, err);
-      });
-
-      return _extends({}, baseReducer(restState, action), {
-        _persist: { version: version, rehydrated: false }
-      });
-    } else if (action.type === _constants__WEBPACK_IMPORTED_MODULE_0__["PURGE"]) {
-      _purge = true;
-      action.result(Object(_purgeStoredState__WEBPACK_IMPORTED_MODULE_4__["default"])(config));
-      return _extends({}, baseReducer(restState, action), {
-        _persist: _persist
-      });
-    } else if (action.type === _constants__WEBPACK_IMPORTED_MODULE_0__["FLUSH"]) {
-      action.result(_persistoid && _persistoid.flush());
-      return _extends({}, baseReducer(restState, action), {
-        _persist: _persist
-      });
-    } else if (action.type === _constants__WEBPACK_IMPORTED_MODULE_0__["PAUSE"]) {
-      _paused = true;
-    } else if (action.type === _constants__WEBPACK_IMPORTED_MODULE_0__["REHYDRATE"]) {
-      // noop on restState if purging
-      if (_purge) return _extends({}, restState, {
-        _persist: _extends({}, _persist, { rehydrated: true })
-
-        // @NOTE if key does not match, will continue to default else below
-      });if (action.key === config.key) {
-        var reducedState = baseReducer(restState, action);
-        var inboundState = action.payload;
-        // only reconcile state if stateReconciler and inboundState are both defined
-        var reconciledRest = stateReconciler !== false && inboundState !== undefined ? stateReconciler(inboundState, state, reducedState, config) : reducedState;
-
-        var _newState = _extends({}, reconciledRest, {
-          _persist: _extends({}, _persist, { rehydrated: true })
-        });
-        return conditionalUpdate(_newState);
-      }
-    }
-
-    // if we have not already handled PERSIST, straight passthrough
-    if (!_persist) return baseReducer(state, action);
-
-    // run base reducer:
-    // is state modified ? return original : return updated
-    var newState = baseReducer(restState, action);
-    if (newState === restState) return state;else {
-      newState._persist = _persist;
-      return conditionalUpdate(newState);
-    }
-  };
-}
-
-/***/ }),
-
-/***/ "./node_modules/redux-persist/es/persistStore.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/redux-persist/es/persistStore.js ***!
-  \*******************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return persistStore; });
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/index.js");
-/* harmony import */ var _persistReducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./persistReducer */ "./node_modules/redux-persist/es/persistReducer.js");
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./constants */ "./node_modules/redux-persist/es/constants.js");
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
-
-
-
-
-
-var initialState = {
-  registry: [],
-  bootstrapped: false
-};
-
-var persistorReducer = function persistorReducer() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
-  var action = arguments[1];
-
-  switch (action.type) {
-    case _constants__WEBPACK_IMPORTED_MODULE_2__["REGISTER"]:
-      return _extends({}, state, { registry: [].concat(_toConsumableArray(state.registry), [action.key]) });
-    case _constants__WEBPACK_IMPORTED_MODULE_2__["REHYDRATE"]:
-      var firstIndex = state.registry.indexOf(action.key);
-      var registry = [].concat(_toConsumableArray(state.registry));
-      registry.splice(firstIndex, 1);
-      return _extends({}, state, { registry: registry, bootstrapped: registry.length === 0 });
-    default:
-      return state;
-  }
-};
-
-function persistStore(store, options, cb) {
-  // help catch incorrect usage of passing PersistConfig in as PersistorOptions
-  if (true) {
-    var optionsToTest = options || {};
-    var bannedKeys = ['blacklist', 'whitelist', 'transforms', 'storage', 'keyPrefix', 'migrate'];
-    bannedKeys.forEach(function (k) {
-      if (!!optionsToTest[k]) console.error('redux-persist: invalid option passed to persistStore: "' + k + '". You may be incorrectly passing persistConfig into persistStore, whereas it should be passed into persistReducer.');
-    });
-  }
-  var boostrappedCb = cb || false;
-
-  var _pStore = Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(persistorReducer, initialState, options ? options.enhancer : undefined);
-  var register = function register(key) {
-    _pStore.dispatch({
-      type: _constants__WEBPACK_IMPORTED_MODULE_2__["REGISTER"],
-      key: key
-    });
-  };
-
-  var rehydrate = function rehydrate(key, payload, err) {
-    var rehydrateAction = {
-      type: _constants__WEBPACK_IMPORTED_MODULE_2__["REHYDRATE"],
-      payload: payload,
-      err: err,
-      key: key
-      // dispatch to `store` to rehydrate and `persistor` to track result
-    };store.dispatch(rehydrateAction);
-    _pStore.dispatch(rehydrateAction);
-    if (boostrappedCb && persistor.getState().bootstrapped) {
-      boostrappedCb();
-      boostrappedCb = false;
-    }
-  };
-
-  var persistor = _extends({}, _pStore, {
-    purge: function purge() {
-      var results = [];
-      store.dispatch({
-        type: _constants__WEBPACK_IMPORTED_MODULE_2__["PURGE"],
-        result: function result(purgeResult) {
-          results.push(purgeResult);
-        }
-      });
-      return Promise.all(results);
-    },
-    flush: function flush() {
-      var results = [];
-      store.dispatch({
-        type: _constants__WEBPACK_IMPORTED_MODULE_2__["FLUSH"],
-        result: function result(flushResult) {
-          results.push(flushResult);
-        }
-      });
-      return Promise.all(results);
-    },
-    pause: function pause() {
-      store.dispatch({
-        type: _constants__WEBPACK_IMPORTED_MODULE_2__["PAUSE"]
-      });
-    },
-    persist: function persist() {
-      store.dispatch({ type: _constants__WEBPACK_IMPORTED_MODULE_2__["PERSIST"], register: register, rehydrate: rehydrate });
-    }
-  });
-
-  persistor.persist();
-
-  return persistor;
-}
-
-/***/ }),
-
-/***/ "./node_modules/redux-persist/es/purgeStoredState.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/redux-persist/es/purgeStoredState.js ***!
-  \***********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return purgeStoredState; });
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./constants */ "./node_modules/redux-persist/es/constants.js");
-
-
-
-
-function purgeStoredState(config) {
-  var storage = config.storage;
-  var storageKey = '' + (config.keyPrefix !== undefined ? config.keyPrefix : _constants__WEBPACK_IMPORTED_MODULE_0__["KEY_PREFIX"]) + config.key;
-  return storage.removeItem(storageKey, warnIfRemoveError);
-}
-
-function warnIfRemoveError(err) {
-  if (err && "development" !== 'production') {
-    console.error('redux-persist/purgeStoredState: Error purging data stored state', err);
-  }
-}
-
-/***/ }),
-
-/***/ "./node_modules/redux-persist/es/stateReconciler/autoMergeLevel1.js":
-/*!**************************************************************************!*\
-  !*** ./node_modules/redux-persist/es/stateReconciler/autoMergeLevel1.js ***!
-  \**************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return autoMergeLevel1; });
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-function autoMergeLevel1(inboundState, originalState, reducedState, _ref) {
-  var debug = _ref.debug;
-
-  var newState = _extends({}, reducedState);
-  // only rehydrate if inboundState exists and is an object
-  if (inboundState && (typeof inboundState === 'undefined' ? 'undefined' : _typeof(inboundState)) === 'object') {
-    Object.keys(inboundState).forEach(function (key) {
-      // ignore _persist data
-      if (key === '_persist') return;
-      // if reducer modifies substate, skip auto rehydration
-      if (originalState[key] !== reducedState[key]) {
-        if ( true && debug) console.log('redux-persist/stateReconciler: sub state for key `%s` modified, skipping.', key);
-        return;
-      }
-      // otherwise hard set the new value
-      newState[key] = inboundState[key];
-    });
-  }
-
-  if ( true && debug && inboundState && (typeof inboundState === 'undefined' ? 'undefined' : _typeof(inboundState)) === 'object') console.log('redux-persist/stateReconciler: rehydrated keys \'' + Object.keys(inboundState).join(', ') + '\'');
-
-  return newState;
-}
-
-/*
-  autoMergeLevel1: 
-    - merges 1 level of substate
-    - skips substate if already modified
-*/
-
-/***/ }),
-
-/***/ "./node_modules/redux-persist/es/stateReconciler/autoMergeLevel2.js":
-/*!**************************************************************************!*\
-  !*** ./node_modules/redux-persist/es/stateReconciler/autoMergeLevel2.js ***!
-  \**************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return autoMergeLevel2; });
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-function autoMergeLevel2(inboundState, originalState, reducedState, _ref) {
-  var debug = _ref.debug;
-
-  var newState = _extends({}, reducedState);
-  // only rehydrate if inboundState exists and is an object
-  if (inboundState && (typeof inboundState === 'undefined' ? 'undefined' : _typeof(inboundState)) === 'object') {
-    Object.keys(inboundState).forEach(function (key) {
-      // ignore _persist data
-      if (key === '_persist') return;
-      // if reducer modifies substate, skip auto rehydration
-      if (originalState[key] !== reducedState[key]) {
-        if ( true && debug) console.log('redux-persist/stateReconciler: sub state for key `%s` modified, skipping.', key);
-        return;
-      }
-      if (isPlainEnoughObject(reducedState[key])) {
-        // if object is plain enough shallow merge the new values (hence "Level2")
-        newState[key] = _extends({}, newState[key], inboundState[key]);
-        return;
-      }
-      // otherwise hard set
-      newState[key] = inboundState[key];
-    });
-  }
-
-  if ( true && debug && inboundState && (typeof inboundState === 'undefined' ? 'undefined' : _typeof(inboundState)) === 'object') console.log('redux-persist/stateReconciler: rehydrated keys \'' + Object.keys(inboundState).join(', ') + '\'');
-
-  return newState;
-}
-
-/*
-  autoMergeLevel2: 
-    - merges 2 level of substate
-    - skips substate if already modified
-    - this is essentially redux-perist v4 behavior
-*/
-
-function isPlainEnoughObject(o) {
-  return o !== null && !Array.isArray(o) && (typeof o === 'undefined' ? 'undefined' : _typeof(o)) === 'object';
-}
-
-/***/ }),
-
-/***/ "./node_modules/redux-persist/lib/storage/createWebStorage.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/redux-persist/lib/storage/createWebStorage.js ***!
-  \********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.default = createWebStorage;
-
-var _getStorage = __webpack_require__(/*! ./getStorage */ "./node_modules/redux-persist/lib/storage/getStorage.js");
-
-var _getStorage2 = _interopRequireDefault(_getStorage);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function createWebStorage(type) {
-  var storage = (0, _getStorage2.default)(type);
-  return {
-    getItem: function getItem(key) {
-      return new Promise(function (resolve, reject) {
-        resolve(storage.getItem(key));
-      });
-    },
-    setItem: function setItem(key, item) {
-      return new Promise(function (resolve, reject) {
-        resolve(storage.setItem(key, item));
-      });
-    },
-    removeItem: function removeItem(key) {
-      return new Promise(function (resolve, reject) {
-        resolve(storage.removeItem(key));
-      });
-    }
-  };
-}
-
-/***/ }),
-
-/***/ "./node_modules/redux-persist/lib/storage/getStorage.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/redux-persist/lib/storage/getStorage.js ***!
-  \**************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-exports.default = getStorage;
-
-
-function noop() {}
-
-var noopStorage = {
-  getItem: noop,
-  setItem: noop,
-  removeItem: noop
-};
-
-function hasStorage(storageType) {
-  if ((typeof self === 'undefined' ? 'undefined' : _typeof(self)) !== 'object' || !(storageType in self)) {
-    return false;
-  }
-
-  try {
-    var storage = self[storageType];
-    var testKey = 'redux-persist ' + storageType + ' test';
-    storage.setItem(testKey, 'test');
-    storage.getItem(testKey);
-    storage.removeItem(testKey);
-  } catch (e) {
-    if (true) console.warn('redux-persist ' + storageType + ' test failed, persistence will be disabled.');
-    return false;
-  }
-  return true;
-}
-
-function getStorage(type) {
-  var storageType = type + 'Storage';
-  if (hasStorage(storageType)) return self[storageType];else {
-    if (true) {
-      console.error('redux-persist failed to create sync storage. falling back to memory storage.');
-    }
-    return noopStorage;
-  }
-}
-
-/***/ }),
-
-/***/ "./node_modules/redux-persist/lib/storage/index.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/redux-persist/lib/storage/index.js ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _createWebStorage = __webpack_require__(/*! ./createWebStorage */ "./node_modules/redux-persist/lib/storage/createWebStorage.js");
-
-var _createWebStorage2 = _interopRequireDefault(_createWebStorage);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = (0, _createWebStorage2.default)('local');
-
-/***/ }),
-
 /***/ "./node_modules/redux/es/applyMiddleware.js":
 /*!**************************************************!*\
   !*** ./node_modules/redux/es/applyMiddleware.js ***!
@@ -8087,7 +7056,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../store */ "./store.js");
+/* harmony import */ var _store_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../store/actions */ "./store/actions.js");
 /* harmony import */ var _components_examples__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/examples */ "./components/examples.js");
 
 
@@ -8145,7 +7114,7 @@ function (_React$Component) {
           req = _ref.req;
       var isServer = !!req; // DISPATCH ACTIONS HERE ONLY WITH `reduxStore.dispatch`
 
-      reduxStore.dispatch(Object(_store__WEBPACK_IMPORTED_MODULE_7__["serverRenderClock"])(isServer));
+      reduxStore.dispatch(Object(_store_actions__WEBPACK_IMPORTED_MODULE_7__["serverRenderClock"])(isServer));
       return {};
     }
   }]);
@@ -8154,23 +7123,42 @@ function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_5___default.a.Component);
 
 var mapDispatchToProps = {
-  startClock: _store__WEBPACK_IMPORTED_MODULE_7__["startClock"]
+  startClock: _store_actions__WEBPACK_IMPORTED_MODULE_7__["startClock"]
 };
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_6__["connect"])(null, mapDispatchToProps)(Index));
 
 /***/ }),
 
-/***/ "./store.js":
-/*!******************!*\
-  !*** ./store.js ***!
-  \******************/
-/*! exports provided: actionTypes, reducer, serverRenderClock, startClock, incrementCount, decrementCount, resetCount, loadExampleData, loadingExampleDataFailure, initializeStore */
+/***/ "./store/actionTypes.js":
+/*!******************************!*\
+  !*** ./store/actionTypes.js ***!
+  \******************************/
+/*! exports provided: actionTypes */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "actionTypes", function() { return actionTypes; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "reducer", function() { return reducer; });
+var actionTypes = {
+  TICK: 'TICK',
+  INCREMENT: 'INCREMENT',
+  DECREMENT: 'DECREMENT',
+  RESET: 'RESET',
+  LOAD_EXAMPLE_DATA: 'LOAD_EXAMPLE_DATA',
+  LOADING_DATA_FAILURE: 'LOADING_DATA_FAILURE'
+};
+
+/***/ }),
+
+/***/ "./store/actions.js":
+/*!**************************!*\
+  !*** ./store/actions.js ***!
+  \**************************/
+/*! exports provided: serverRenderClock, startClock, incrementCount, decrementCount, resetCount, loadExampleData, loadingExampleDataFailure */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "serverRenderClock", function() { return serverRenderClock; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "startClock", function() { return startClock; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "incrementCount", function() { return incrementCount; });
@@ -8178,131 +7166,51 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resetCount", function() { return resetCount; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadExampleData", function() { return loadExampleData; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadingExampleDataFailure", function() { return loadingExampleDataFailure; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initializeStore", function() { return initializeStore; });
 /* harmony import */ var _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/date/now */ "./node_modules/@babel/runtime-corejs2/core-js/date/now.js");
 /* harmony import */ var _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_assign__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/assign */ "./node_modules/@babel/runtime-corejs2/core-js/object/assign.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_assign__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_assign__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/index.js");
-/* harmony import */ var redux_devtools_extension__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux-devtools-extension */ "./node_modules/redux-devtools-extension/index.js");
-/* harmony import */ var redux_devtools_extension__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(redux_devtools_extension__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var redux_persist__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! redux-persist */ "./node_modules/redux-persist/es/index.js");
-/* harmony import */ var redux_persist_lib_storage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! redux-persist/lib/storage */ "./node_modules/redux-persist/lib/storage/index.js");
-/* harmony import */ var redux_persist_lib_storage__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(redux_persist_lib_storage__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _actionTypes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./actionTypes */ "./store/actionTypes.js");
 
-
-
-
-
-
-var exampleInitialState = {
-  lastUpdate: 0,
-  light: false,
-  count: 0,
-  exampleData: [],
-  error: null
-};
-var actionTypes = {
-  TICK: 'TICK',
-  INCREMENT: 'INCREMENT',
-  DECREMENT: 'DECREMENT',
-  RESET: 'RESET',
-  LOAD_EXAMPLE_DATA: 'LOAD_EXAMPLE_DATA',
-  LOADING_DATA_FAILURE: 'LOADING_DATA_FAILURE' // REDUCERS
-
-};
-var reducer = function reducer() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : exampleInitialState;
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-
-  switch (action.type) {
-    case actionTypes.TICK:
-      return _babel_runtime_corejs2_core_js_object_assign__WEBPACK_IMPORTED_MODULE_1___default()({}, state, {
-        lastUpdate: action.ts,
-        light: !!action.light
-      });
-
-    case actionTypes.INCREMENT:
-      return _babel_runtime_corejs2_core_js_object_assign__WEBPACK_IMPORTED_MODULE_1___default()({}, state, {
-        count: state.count + 1
-      });
-
-    case actionTypes.DECREMENT:
-      return _babel_runtime_corejs2_core_js_object_assign__WEBPACK_IMPORTED_MODULE_1___default()({}, state, {
-        count: state.count - 1
-      });
-
-    case actionTypes.RESET:
-      return _babel_runtime_corejs2_core_js_object_assign__WEBPACK_IMPORTED_MODULE_1___default()({}, state, {
-        count: exampleInitialState.count
-      });
-
-    case actionTypes.LOAD_EXAMPLE_DATA:
-      return _babel_runtime_corejs2_core_js_object_assign__WEBPACK_IMPORTED_MODULE_1___default()({}, state, {
-        exampleData: action.data
-      });
-
-    case actionTypes.LOADING_DATA_FAILURE:
-      return _babel_runtime_corejs2_core_js_object_assign__WEBPACK_IMPORTED_MODULE_1___default()({}, state, {
-        error: true
-      });
-
-    default:
-      return state;
-  }
-}; // ACTIONS
 
 var serverRenderClock = function serverRenderClock() {
   return {
-    type: actionTypes.TICK,
+    type: _actionTypes__WEBPACK_IMPORTED_MODULE_1__["actionTypes"].TICK,
     light: false,
     ts: _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_0___default()()
   };
 };
 var startClock = function startClock() {
   return {
-    type: actionTypes.TICK,
+    type: _actionTypes__WEBPACK_IMPORTED_MODULE_1__["actionTypes"].TICK,
     light: true,
     ts: _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_0___default()()
   };
 };
 var incrementCount = function incrementCount() {
   return {
-    type: actionTypes.INCREMENT
+    type: _actionTypes__WEBPACK_IMPORTED_MODULE_1__["actionTypes"].INCREMENT
   };
 };
 var decrementCount = function decrementCount() {
   return {
-    type: actionTypes.DECREMENT
+    type: _actionTypes__WEBPACK_IMPORTED_MODULE_1__["actionTypes"].DECREMENT
   };
 };
 var resetCount = function resetCount() {
   return {
-    type: actionTypes.RESET
+    type: _actionTypes__WEBPACK_IMPORTED_MODULE_1__["actionTypes"].RESET
   };
 };
 var loadExampleData = function loadExampleData(data) {
   return {
-    type: actionTypes.LOAD_EXAMPLE_DATA,
+    type: _actionTypes__WEBPACK_IMPORTED_MODULE_1__["actionTypes"].LOAD_EXAMPLE_DATA,
     data: data
   };
 };
 var loadingExampleDataFailure = function loadingExampleDataFailure() {
   return {
-    type: actionTypes.LOADING_DATA_FAILURE
+    type: _actionTypes__WEBPACK_IMPORTED_MODULE_1__["actionTypes"].LOADING_DATA_FAILURE
   };
 };
-var persistConfig = {
-  key: 'primary',
-  storage: redux_persist_lib_storage__WEBPACK_IMPORTED_MODULE_5___default.a,
-  whitelist: ['exampleData'] // place to select which state you want to persist
-
-};
-var persistedReducer = Object(redux_persist__WEBPACK_IMPORTED_MODULE_4__["persistReducer"])(persistConfig, reducer);
-function initializeStore() {
-  var initialState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : exampleInitialState;
-  return Object(redux__WEBPACK_IMPORTED_MODULE_2__["createStore"])(persistedReducer, initialState, Object(redux_devtools_extension__WEBPACK_IMPORTED_MODULE_3__["composeWithDevTools"])(Object(redux__WEBPACK_IMPORTED_MODULE_2__["applyMiddleware"])()));
-}
 
 /***/ }),
 

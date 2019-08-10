@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../store */ "./store.js");
+/* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../store/store */ "./store/store.js");
 
 
 
@@ -40,12 +40,12 @@ var __NEXT_REDUX_STORE__ = '__NEXT_REDUX_STORE__';
 function getOrCreateStore(initialState) {
   // Always make a new store if server, otherwise state is shared between requests
   if (isServer) {
-    return Object(_store__WEBPACK_IMPORTED_MODULE_10__["initializeStore"])(initialState);
+    return Object(_store_store__WEBPACK_IMPORTED_MODULE_10__["initializeStore"])(initialState);
   } // Create store if unavailable on the client and set it on the window object
 
 
   if (!window[__NEXT_REDUX_STORE__]) {
-    window[__NEXT_REDUX_STORE__] = Object(_store__WEBPACK_IMPORTED_MODULE_10__["initializeStore"])(initialState);
+    window[__NEXT_REDUX_STORE__] = Object(_store_store__WEBPACK_IMPORTED_MODULE_10__["initializeStore"])(initialState);
   }
 
   return window[__NEXT_REDUX_STORE__];
@@ -146,17 +146,6 @@ function getOrCreateStore(initialState) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(/*! core-js/library/fn/array/is-array */ "./node_modules/core-js/library/fn/array/is-array.js");
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime-corejs2/core-js/date/now.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/@babel/runtime-corejs2/core-js/date/now.js ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(/*! core-js/library/fn/date/now */ "./node_modules/core-js/library/fn/date/now.js");
 
 /***/ }),
 
@@ -976,19 +965,6 @@ module.exports = __webpack_require__(/*! regenerator-runtime */ "./node_modules/
 
 __webpack_require__(/*! ../../modules/es6.array.is-array */ "./node_modules/core-js/library/modules/es6.array.is-array.js");
 module.exports = __webpack_require__(/*! ../../modules/_core */ "./node_modules/core-js/library/modules/_core.js").Array.isArray;
-
-
-/***/ }),
-
-/***/ "./node_modules/core-js/library/fn/date/now.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/core-js/library/fn/date/now.js ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(/*! ../../modules/es6.date.now */ "./node_modules/core-js/library/modules/es6.date.now.js");
-module.exports = __webpack_require__(/*! ../../modules/_core */ "./node_modules/core-js/library/modules/_core.js").Date.now;
 
 
 /***/ }),
@@ -3149,21 +3125,6 @@ Iterators.Arguments = Iterators.Array;
 addToUnscopables('keys');
 addToUnscopables('values');
 addToUnscopables('entries');
-
-
-/***/ }),
-
-/***/ "./node_modules/core-js/library/modules/es6.date.now.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/core-js/library/modules/es6.date.now.js ***!
-  \**************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// 20.3.3.1 / 15.9.4.4 Date.now()
-var $export = __webpack_require__(/*! ./_export */ "./node_modules/core-js/library/modules/_export.js");
-
-$export($export.S, 'Date', { now: function () { return new Date().getTime(); } });
 
 
 /***/ }),
@@ -12820,148 +12781,139 @@ function (_App) {
 
 /***/ }),
 
-/***/ "./store.js":
-/*!******************!*\
-  !*** ./store.js ***!
-  \******************/
-/*! exports provided: actionTypes, reducer, serverRenderClock, startClock, incrementCount, decrementCount, resetCount, loadExampleData, loadingExampleDataFailure, initializeStore */
+/***/ "./store/actionTypes.js":
+/*!******************************!*\
+  !*** ./store/actionTypes.js ***!
+  \******************************/
+/*! exports provided: actionTypes */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "actionTypes", function() { return actionTypes; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "reducer", function() { return reducer; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "serverRenderClock", function() { return serverRenderClock; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "startClock", function() { return startClock; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "incrementCount", function() { return incrementCount; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "decrementCount", function() { return decrementCount; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resetCount", function() { return resetCount; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadExampleData", function() { return loadExampleData; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadingExampleDataFailure", function() { return loadingExampleDataFailure; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initializeStore", function() { return initializeStore; });
-/* harmony import */ var _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/date/now */ "./node_modules/@babel/runtime-corejs2/core-js/date/now.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_assign__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/assign */ "./node_modules/@babel/runtime-corejs2/core-js/object/assign.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_assign__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_assign__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/index.js");
-/* harmony import */ var redux_devtools_extension__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux-devtools-extension */ "./node_modules/redux-devtools-extension/index.js");
-/* harmony import */ var redux_devtools_extension__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(redux_devtools_extension__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var redux_persist__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! redux-persist */ "./node_modules/redux-persist/es/index.js");
-/* harmony import */ var redux_persist_lib_storage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! redux-persist/lib/storage */ "./node_modules/redux-persist/lib/storage/index.js");
-/* harmony import */ var redux_persist_lib_storage__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(redux_persist_lib_storage__WEBPACK_IMPORTED_MODULE_5__);
-
-
-
-
-
-
-var exampleInitialState = {
-  lastUpdate: 0,
-  light: false,
-  count: 0,
-  exampleData: [],
-  error: null
-};
 var actionTypes = {
   TICK: 'TICK',
   INCREMENT: 'INCREMENT',
   DECREMENT: 'DECREMENT',
   RESET: 'RESET',
   LOAD_EXAMPLE_DATA: 'LOAD_EXAMPLE_DATA',
-  LOADING_DATA_FAILURE: 'LOADING_DATA_FAILURE' // REDUCERS
-
+  LOADING_DATA_FAILURE: 'LOADING_DATA_FAILURE'
 };
+
+/***/ }),
+
+/***/ "./store/reducers.js":
+/*!***************************!*\
+  !*** ./store/reducers.js ***!
+  \***************************/
+/*! exports provided: reducer */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "reducer", function() { return reducer; });
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/objectSpread */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectSpread.js");
+/* harmony import */ var _state__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./state */ "./store/state.js");
+/* harmony import */ var _actionTypes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./actionTypes */ "./store/actionTypes.js");
+
+
+
 var reducer = function reducer() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : exampleInitialState;
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _state__WEBPACK_IMPORTED_MODULE_1__["InitialState"];
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
-    case actionTypes.TICK:
-      return _babel_runtime_corejs2_core_js_object_assign__WEBPACK_IMPORTED_MODULE_1___default()({}, state, {
+    case _actionTypes__WEBPACK_IMPORTED_MODULE_2__["actionTypes"].TICK:
+      return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
         lastUpdate: action.ts,
         light: !!action.light
       });
 
-    case actionTypes.INCREMENT:
-      return _babel_runtime_corejs2_core_js_object_assign__WEBPACK_IMPORTED_MODULE_1___default()({}, state, {
+    case _actionTypes__WEBPACK_IMPORTED_MODULE_2__["actionTypes"].INCREMENT:
+      return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
         count: state.count + 1
       });
 
-    case actionTypes.DECREMENT:
-      return _babel_runtime_corejs2_core_js_object_assign__WEBPACK_IMPORTED_MODULE_1___default()({}, state, {
+    case _actionTypes__WEBPACK_IMPORTED_MODULE_2__["actionTypes"].DECREMENT:
+      return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
         count: state.count - 1
       });
 
-    case actionTypes.RESET:
-      return _babel_runtime_corejs2_core_js_object_assign__WEBPACK_IMPORTED_MODULE_1___default()({}, state, {
+    case _actionTypes__WEBPACK_IMPORTED_MODULE_2__["actionTypes"].RESET:
+      return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
         count: exampleInitialState.count
       });
 
-    case actionTypes.LOAD_EXAMPLE_DATA:
-      return _babel_runtime_corejs2_core_js_object_assign__WEBPACK_IMPORTED_MODULE_1___default()({}, state, {
+    case _actionTypes__WEBPACK_IMPORTED_MODULE_2__["actionTypes"].LOAD_EXAMPLE_DATA:
+      return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
         exampleData: action.data
       });
 
-    case actionTypes.LOADING_DATA_FAILURE:
-      return _babel_runtime_corejs2_core_js_object_assign__WEBPACK_IMPORTED_MODULE_1___default()({}, state, {
+    case _actionTypes__WEBPACK_IMPORTED_MODULE_2__["actionTypes"].LOADING_DATA_FAILURE:
+      return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
         error: true
       });
 
     default:
       return state;
   }
-}; // ACTIONS
+};
 
-var serverRenderClock = function serverRenderClock() {
-  return {
-    type: actionTypes.TICK,
-    light: false,
-    ts: _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_0___default()()
-  };
+/***/ }),
+
+/***/ "./store/state.js":
+/*!************************!*\
+  !*** ./store/state.js ***!
+  \************************/
+/*! exports provided: InitialState */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InitialState", function() { return InitialState; });
+var InitialState = {
+  lastUpdate: 0,
+  light: false,
+  count: 0,
+  exampleData: [],
+  error: null
 };
-var startClock = function startClock() {
-  return {
-    type: actionTypes.TICK,
-    light: true,
-    ts: _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_0___default()()
-  };
-};
-var incrementCount = function incrementCount() {
-  return {
-    type: actionTypes.INCREMENT
-  };
-};
-var decrementCount = function decrementCount() {
-  return {
-    type: actionTypes.DECREMENT
-  };
-};
-var resetCount = function resetCount() {
-  return {
-    type: actionTypes.RESET
-  };
-};
-var loadExampleData = function loadExampleData(data) {
-  return {
-    type: actionTypes.LOAD_EXAMPLE_DATA,
-    data: data
-  };
-};
-var loadingExampleDataFailure = function loadingExampleDataFailure() {
-  return {
-    type: actionTypes.LOADING_DATA_FAILURE
-  };
-};
+
+/***/ }),
+
+/***/ "./store/store.js":
+/*!************************!*\
+  !*** ./store/store.js ***!
+  \************************/
+/*! exports provided: initializeStore */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initializeStore", function() { return initializeStore; });
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/index.js");
+/* harmony import */ var redux_devtools_extension__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-devtools-extension */ "./node_modules/redux-devtools-extension/index.js");
+/* harmony import */ var redux_devtools_extension__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(redux_devtools_extension__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var redux_persist__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! redux-persist */ "./node_modules/redux-persist/es/index.js");
+/* harmony import */ var redux_persist_lib_storage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux-persist/lib/storage */ "./node_modules/redux-persist/lib/storage/index.js");
+/* harmony import */ var redux_persist_lib_storage__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(redux_persist_lib_storage__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _reducers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./reducers */ "./store/reducers.js");
+/* harmony import */ var _state__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./state */ "./store/state.js");
+
+
+
+
+
+
 var persistConfig = {
   key: 'primary',
-  storage: redux_persist_lib_storage__WEBPACK_IMPORTED_MODULE_5___default.a,
-  whitelist: ['exampleData'] // place to select which state you want to persist
-
+  storage: redux_persist_lib_storage__WEBPACK_IMPORTED_MODULE_3___default.a,
+  whitelist: ['count']
 };
-var persistedReducer = Object(redux_persist__WEBPACK_IMPORTED_MODULE_4__["persistReducer"])(persistConfig, reducer);
+var persistedReducer = Object(redux_persist__WEBPACK_IMPORTED_MODULE_2__["persistReducer"])(persistConfig, _reducers__WEBPACK_IMPORTED_MODULE_4__["reducer"]);
 function initializeStore() {
-  var initialState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : exampleInitialState;
-  return Object(redux__WEBPACK_IMPORTED_MODULE_2__["createStore"])(persistedReducer, initialState, Object(redux_devtools_extension__WEBPACK_IMPORTED_MODULE_3__["composeWithDevTools"])(Object(redux__WEBPACK_IMPORTED_MODULE_2__["applyMiddleware"])()));
+  var initialState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _state__WEBPACK_IMPORTED_MODULE_5__["InitialState"];
+  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(persistedReducer, initialState, Object(redux_devtools_extension__WEBPACK_IMPORTED_MODULE_1__["composeWithDevTools"])(Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])()));
 }
 
 /***/ }),

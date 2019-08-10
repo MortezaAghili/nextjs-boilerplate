@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { incrementCount, decrementCount, resetCount } from '../store'
+import { incrementCount, decrementCount, resetCount } from '../store/actions'
 
 class Counter extends Component {
   increment = () => {
