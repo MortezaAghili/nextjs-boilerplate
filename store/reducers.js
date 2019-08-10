@@ -22,7 +22,7 @@ export const reducer = (state = InitialState, action) => {
     case actionTypes.RESET:
       return {
         ...state,
-        count: exampleInitialState.count
+        count: InitialState.count
       }
     case actionTypes.LOAD_EXAMPLE_DATA:
       return {
