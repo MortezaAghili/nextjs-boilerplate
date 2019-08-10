@@ -146,13 +146,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux */ "redux");
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _store_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../store/actions */ "./store/actions.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _store_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../store/actions */ "./store/actions.js");
 
 var _jsxFileName = "/Users/morteza/Codes/bimnet/with-redux-persist-app/components/counter.js";
 
 
 
 
+
+const Title = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.h1`
+  font-size: 50px;
+  color: ${({
+  theme
+}) => theme.colors.primary};
+`;
 
 class Counter extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
   constructor(...args) {
@@ -187,40 +196,40 @@ class Counter extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
     return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 25
+        lineNumber: 32
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h1", {
+    }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Title, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 26
+        lineNumber: 33
       },
       __self: this
     }, "Count: ", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 27
+        lineNumber: 34
       },
       __self: this
     }, count)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
       onClick: this.increment,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 29
+        lineNumber: 36
       },
       __self: this
     }, "+1"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
       onClick: this.decrement,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 30
+        lineNumber: 37
       },
       __self: this
     }, "-1"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
       onClick: this.reset,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 31
+        lineNumber: 38
       },
       __self: this
     }, "Reset"));
@@ -238,9 +247,9 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = dispatch => Object(redux__WEBPACK_IMPORTED_MODULE_3__["bindActionCreators"])({
-  incrementCount: _store_actions__WEBPACK_IMPORTED_MODULE_4__["incrementCount"],
-  decrementCount: _store_actions__WEBPACK_IMPORTED_MODULE_4__["decrementCount"],
-  resetCount: _store_actions__WEBPACK_IMPORTED_MODULE_4__["resetCount"]
+  incrementCount: _store_actions__WEBPACK_IMPORTED_MODULE_5__["incrementCount"],
+  decrementCount: _store_actions__WEBPACK_IMPORTED_MODULE_5__["decrementCount"],
+  resetCount: _store_actions__WEBPACK_IMPORTED_MODULE_5__["resetCount"]
 }, dispatch);
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(Counter));
@@ -747,6 +756,17 @@ module.exports = require("react-redux");
 /***/ (function(module, exports) {
 
 module.exports = require("redux");
+
+/***/ }),
+
+/***/ "styled-components":
+/*!************************************!*\
+  !*** external "styled-components" ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("styled-components");
 
 /***/ }),
 
