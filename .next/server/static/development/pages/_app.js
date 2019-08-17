@@ -1027,7 +1027,7 @@ const reducer = (state = _state__WEBPACK_IMPORTED_MODULE_1__["InitialState"], ac
 
     case _actionTypes__WEBPACK_IMPORTED_MODULE_2__["actionTypes"].RESET:
       return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
-        count: exampleInitialState.count
+        count: _state__WEBPACK_IMPORTED_MODULE_1__["InitialState"].count
       });
 
     case _actionTypes__WEBPACK_IMPORTED_MODULE_2__["actionTypes"].LOAD_EXAMPLE_DATA:
